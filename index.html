@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yulia Miller LCSW – Psychotherapist in New York</title>
+    <meta name="description" content="Yulia Miller is a Russian-English speaking licensed psychotherapist with over 7 years of clinical experience, specializing in anxiety, depression, and relationship issues." />
+    <meta name="theme-color" content="#7a9e87" />
+    <meta property="og:title" content="Yulia Miller LCSW" />
+    <meta property="og:description" content="Experienced psychotherapist offering talk therapy in New York." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yuliamiller.com" />
+    <link rel="canonical" href="https://yuliamiller.com/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+
+    <nav class="site-nav">
+      <div class="container">
+        <a href="/" class="nav-brand">Yulia Miller, LCSW <span>Psychotherapy</span></a>
+        <ul class="nav-links">
+          <li><a href="/" class="active">Home</a></li>
+          <li><a href="/insurances/">Fees &amp; Insurance</a></li>
+          <li><a href="/education/">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-text">
+          <p class="subtitle">Licensed Clinical Social Worker</p>
+          <h1>Yulia Miller, LCSW</h1>
+          <p>Whether you're navigating big transitions, relationship challenges, or emotional ups and downs, therapy can be a powerful space to pause, reflect, and grow.</p>
+          <a href="#contact" class="btn">Get in Touch</a>
+        </div>
+        <div class="hero-image">
+          <img src="images/headshot.png" alt="Yulia Miller, LCSW" />
+        </div>
+      </div>
+    </section>
+
+    <main>
+
+      <!-- About -->
+      <section class="bio">
+        <div class="container">
+          <h2 class="heading">About Me</h2>
+          <p>Hello and welcome! Whether you're navigating big transitions, relationship challenges, or emotional ups and downs, therapy can be a powerful space to pause, reflect, and grow. Together, we'll explore your strengths, clarify your goals, and move toward healing and authenticity.</p>
+          <p>I'm a Russian-English speaking licensed psychotherapist with over 7 years of clinical experience. Having personally navigated cultural transitions while raising two young children and managing a full professional life, I understand how hard it can be to feel centered. I specialize in treating anxiety, depression, communication and relationship issues.</p>
+          <p>I am using a warm, collaborative, and integrative approach tailored to your needs and will be honored to support you in your journey toward greater self-awareness and well-being. If you're ready to start feeling more grounded, connected, and empowered, I'm here to help.</p>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="contact">
+        <div class="container">
+          <h2 class="heading center">Contact Me</h2>
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="name">Name <span aria-hidden="true">*</span></label>
+              <input type="text" id="name" name="name" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email <span aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" required autocomplete="email" />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message"></textarea>
+            </div>
+            <button type="submit" class="form-submit">Send Message</button>
+            <p class="form-status" id="formStatus" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; <span id="year"></span> Yulia Miller, LCSW. All rights reserved.</p>
+      <p><a href="/insurances/">Fees &amp; Insurance</a> &bull; <a href="/education/">Education</a></p>
+      <div class="powered-by">
+        <a href="https://asksancho.ai/" target="_blank" rel="noopener" aria-label="Powered by Sancho AI">
+          <img src="https://asksancho.ai/favicon.svg" alt="Sancho AI" width="20" height="20" loading="lazy" />
+          <span>Powered by Sancho AI</span>
+        </a>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      const form = document.getElementById('contactForm');
+      const status = document.getElementById('formStatus');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = form.querySelector('.form-submit');
+        btn.disabled = true;
+        status.textContent = 'Sending…';
+        status.className = 'form-status';
+
+        const data = {
+          name: form.name.value.trim(),
+          email: form.email.value.trim(),
+          message: form.message.value.trim(),
+        };
+
+        try {
+          const res = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+          });
+          if (res.ok) {
+            status.textContent = '✨ Thank you! I\'ll be in touch soon.';
+            status.className = 'form-status success';
+            form.reset();
+          } else {
+            throw new Error('Server error');
+          }
+        } catch {
+          status.textContent = 'Something went wrong — please email me directly.';
+          status.className = 'form-status error';
+        } finally {
+          btn.disabled = false;
+        }
+      });
+    </script>
+  </body>
+</html>
