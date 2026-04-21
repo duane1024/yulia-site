@@ -26,7 +26,7 @@ Set the following environment variables in the Cloudflare Pages dashboard:
 | Variable         | Value                              |
 |------------------|------------------------------------|
 | `RESEND_API_KEY` | Your Resend API key                |
-| `CONTACT_EMAIL`  | Destination email for submissions  |
+| `CONTACT_EMAIL`  | `millery212@gmail.com`             |
 
 ## DNS Cutover (GoDaddy → Cloudflare)
 
