@@ -150,8 +150,7 @@ a { color: var(--sage-dark); }
 .hero-image img {
   width: 100%;
   border-radius: 4px;
-  object-fit: cover;
-  max-height: 420px;
+  object-fit: contain;
 }
 
 .btn {
@@ -394,26 +393,7 @@ section:nth-of-type(even) {
 
 .site-footer a:hover { color: #fff; }
 
-.powered-by {
-  margin-top: 12px;
-}
 
-.powered-by a {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  text-decoration: none;
-  color: rgba(255,255,255,0.5);
-  font-size: 0.8rem;
-}
-
-.powered-by a:hover { color: rgba(255,255,255,0.8); }
-
-.powered-by img {
-  width: 20px;
-  height: 20px;
-  border-radius: 3px;
-}
 
 /* ── Responsive ── */
 
