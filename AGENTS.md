@@ -32,7 +32,8 @@ There is no automated test suite. Manually verify:
 
 - Each page loads locally and navigation links resolve correctly.
 - Layout remains readable on mobile and desktop widths.
-- The Zocdoc Book Online button remains visible in the sticky header while scrolling.
+- The Zocdoc Book Online button remains visible while scrolling.
+- The Zocdoc widget script includes `data-static-as-sticky-bob` so it does not inject a duplicate sticky button.
 - The Zocdoc booking URL includes `referrerType=widget`.
 
 For content or SEO changes, check `title`, `meta description`, canonical URL, `sitemap.xml`, and `robots.txt` as applicable.

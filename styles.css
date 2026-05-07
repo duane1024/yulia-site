@@ -139,8 +139,13 @@ p { margin: 0 0 18px; }
 }
 
 .nav-booking a {
+  display: block;
   border-radius: 4px;
   box-shadow: 0 8px 24px rgba(36, 52, 45, 0.16);
+}
+
+.nav-booking .zd-plugin-initialized {
+  z-index: 2147483647;
 }
 
 .nav-booking a:focus-visible {

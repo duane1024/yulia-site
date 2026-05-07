@@ -16,7 +16,9 @@ styles.css          — Shared stylesheet
 
 ## Direct Booking
 
-Zocdoc's Book Online widget is embedded in the sticky header on every public page so patients can schedule while browsing the site. Keep `referrerType=widget` in the Zocdoc URL to preserve tracking and avoid online scheduling charges.
+Zocdoc's Book Online widget is embedded on every public page so patients can schedule while browsing the site. Keep `referrerType=widget` in the Zocdoc URL to preserve tracking and avoid online scheduling charges.
+
+The widget script uses `data-static-as-sticky-bob` so Zocdoc treats the static button as the persistent sticky booking control instead of injecting a second sticky button.
 
 The appointment request form was removed to keep scheduling in one place. The contact section now lists direct text and email methods for questions before booking.
 
