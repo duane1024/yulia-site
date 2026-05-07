@@ -78,5 +78,28 @@
 
     <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
     <script data-static-as-sticky-bob>(function (d) {var script = d.createElement('script'); script.type = 'text/javascript'; script.async = true; script.src = 'https://offsiteschedule.zocdoc.com/plugin/embed';var s = d.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);})(document);</script>
+    <script>
+      (function () {
+        const mobileQuery = window.matchMedia('(max-width: 860px)');
+        const resetMobileZocdoc = () => {
+          if (!mobileQuery.matches) return;
+          document.querySelectorAll('.zd-alert-box, .zd-provider-availability-alert-box, .zd-sticky-button').forEach((el) => el.remove());
+          document.querySelectorAll('.nav-booking .zd-plugin, .nav-booking .zd-plugin-initialized').forEach((el) => {
+            el.style.position = '';
+            el.style.bottom = '';
+            el.style.right = '';
+            el.style.boxShadow = '';
+          });
+        };
+
+        resetMobileZocdoc();
+        window.addEventListener('load', resetMobileZocdoc);
+        window.setTimeout(resetMobileZocdoc, 500);
+        window.setTimeout(resetMobileZocdoc, 1500);
+
+        const observer = new MutationObserver(resetMobileZocdoc);
+        observer.observe(document.documentElement, { childList: true, subtree: true });
+      })();
+    </script>
   </body>
 </html>

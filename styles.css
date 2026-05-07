@@ -629,6 +629,25 @@ section {
     gap: 14px 18px;
   }
 
+  .nav-booking .zd-plugin,
+  .nav-booking .zd-plugin-initialized {
+    position: static !important;
+    right: auto !important;
+    bottom: auto !important;
+    display: block !important;
+    width: 162px !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    box-shadow: 0 8px 24px rgba(36, 52, 45, 0.16) !important;
+  }
+
+  .zd-alert-box,
+  .zd-provider-availability-alert-box,
+  .zd-sticky-button {
+    display: none !important;
+  }
+
   .hero {
     min-height: 0;
     padding: 82px 0 70px;
