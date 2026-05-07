@@ -2,39 +2,23 @@
 
 Static site for [yuliamiller.com](https://yuliamiller.com) — Yulia Miller LCSW, Psychotherapy.
 
-Deployed via **Cloudflare Pages** with automatic deployment on push to `master`.
+Deployed via **Cloudflare Pages** with automatic deployment on push to `main`.
 
 ## Structure
 
 ```
-index.html          — Home page (bio + contact form)
+index.html          — Home page (bio + contact methods)
 insurances/         — Fees & Insurance page
 education/          — Education & Credentials page
 images/             — headshot, logo
 styles.css          — Shared stylesheet
-functions/
-  api/
-    contact.js      — Cloudflare Pages Function for contact form (POST /api/contact)
 ```
 
-## Contact Form
+## Direct Booking
 
-Uses a Cloudflare Pages Function (`functions/api/contact.js`) to relay form submissions via the Gmail API using an OAuth refresh token.
+Zocdoc's Book Online widget is embedded in the sticky header on every public page so patients can schedule while browsing the site. Keep `referrerType=widget` in the Zocdoc URL to preserve tracking and avoid online scheduling charges.
 
-Set the following environment variables in the Cloudflare Pages dashboard:
-
-| Variable              | Value |
-|-----------------------|-------|
-| `GMAIL_CLIENT_ID`     | OAuth client id for the Gmail account |
-| `GMAIL_CLIENT_SECRET` | OAuth client secret for the Gmail account |
-| `GMAIL_REFRESH_TOKEN` | Refresh token with `gmail.send` access |
-| `GMAIL_FROM_EMAIL`    | Gmail address used as sender (typically `millery212@gmail.com`) |
-| `CONTACT_EMAIL`       | Delivery destination (typically `millery212@gmail.com`) |
-
-Notes:
-- `GMAIL_FROM_EMAIL` must match the authenticated Gmail account or an allowed Gmail "send as" alias.
-- The contact form sets the visitor's address as `Reply-To`, so replies still go back to the person who filled out the form.
-- A practical way to get the refresh token is to reuse the existing Gmail OAuth app credentials already used elsewhere, then mint a refresh token once with `https://www.googleapis.com/auth/gmail.send` scope.
+The appointment request form was removed to keep scheduling in one place. The contact section now lists direct text and email methods for questions before booking.
 
 ## DNS Cutover (GoDaddy → Cloudflare)
 

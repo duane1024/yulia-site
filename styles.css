@@ -134,6 +134,26 @@ p { margin: 0 0 18px; }
   color: var(--clay-dark);
 }
 
+.nav-booking {
+  flex: 0 0 auto;
+}
+
+.nav-booking a {
+  border-radius: 4px;
+  box-shadow: 0 8px 24px rgba(36, 52, 45, 0.16);
+}
+
+.nav-booking a:focus-visible {
+  outline: 3px solid rgba(185, 111, 80, 0.42);
+  outline-offset: 3px;
+}
+
+.nav-booking img {
+  display: block;
+  height: 48px;
+  width: 162px;
+}
+
 /* Home hero */
 
 .hero {
@@ -180,8 +200,7 @@ p { margin: 0 0 18px; }
   margin-top: 30px;
 }
 
-.btn,
-.form-submit {
+.btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -200,8 +219,7 @@ p { margin: 0 0 18px; }
   transition: background 0.15s ease, transform 0.15s ease;
 }
 
-.btn:hover,
-.form-submit:hover {
+.btn:hover {
   background: var(--clay-dark);
   color: var(--white);
   transform: translateY(-1px);
@@ -435,59 +453,29 @@ section {
   font-size: 0.92rem;
 }
 
-.contact-form {
-  background: var(--cream);
+.contact-panel {
+  background: rgba(255, 255, 255, 0.08);
+  border-left: 3px solid var(--clay);
   border-radius: 8px;
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
   padding: 32px;
 }
 
-.form-group {
-  margin-bottom: 20px;
+.contact-panel h3 {
+  color: var(--white);
+  font-family: var(--heading-font);
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0 0 14px;
 }
 
-.form-group label {
-  color: var(--forest);
-  display: block;
-  font-size: 0.92rem;
-  font-weight: 700;
-  margin-bottom: 7px;
+.contact-panel p {
+  color: rgba(255, 255, 255, 0.86);
 }
 
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  border: 1px solid rgba(95, 127, 99, 0.28);
-  border-radius: 4px;
-  background: var(--white);
-  color: var(--ink);
-  font-family: var(--body-font);
-  font-size: 1rem;
-  padding: 12px 14px;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+.contact-panel p:last-child {
+  margin-bottom: 0;
 }
-
-.form-group input:focus,
-.form-group textarea:focus {
-  border-color: var(--clay);
-  box-shadow: 0 0 0 3px rgba(185, 111, 80, 0.16);
-  outline: none;
-}
-
-.form-group textarea {
-  min-height: 150px;
-  resize: vertical;
-}
-
-.form-status {
-  color: var(--forest);
-  font-size: 0.95rem;
-  margin: 16px 0 0;
-  min-height: 1.4em;
-}
-
-.form-status.success { color: var(--moss); }
-.form-status.error { color: #9e3224; }
 
 /* Fees and education pages */
 
@@ -690,8 +678,7 @@ section {
   }
 
   .hero-actions,
-  .btn,
-  .form-submit {
+  .btn {
     width: 100%;
   }
 
@@ -705,7 +692,7 @@ section {
     font-size: 0.84rem;
   }
 
-  .contact-form,
+  .contact-panel,
   .fees-box,
   .edu-item {
     padding: 24px;
