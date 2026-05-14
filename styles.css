@@ -515,6 +515,11 @@ section {
   align-items: start;
 }
 
+.fees-column {
+  display: grid;
+  gap: 32px;
+}
+
 .fees-box,
 .edu-item {
   background: var(--white);
